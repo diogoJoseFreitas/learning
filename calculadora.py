@@ -6,7 +6,7 @@ class Calculadora():
 		pass
 	def exec(self, calculo:str):
 		# Este código deve apenas receber os números e operadores e executar as funćoes atribuidas a cada conta
-		n1, op, n2 = calculo.split(' ')
+		n1, op, n2 = calculo.split(' ')[:3]
 		n1 = float(n1)
 		n2 = float(n2)
 
