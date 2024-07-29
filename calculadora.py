@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
 	while True:
 		r = str(input('Insira a operação desejada, seguindo o modelo (<número> <operador> <numero>) (-1 para sair): '))
-		if r == -1: 
+		if r == '-1': 
 			print('Encerrando Calculadora!')
 			break
 		else: 
