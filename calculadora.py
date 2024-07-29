@@ -7,6 +7,9 @@ class Calculadora():
 	def exec(self, calculo:str):
 		# Este código deve apenas receber os números e operadores e executar as funćoes atribuidas a cada conta
 		n1, op, n2 = calculo.split(' ')
+		n1 = float(n1)
+		n2 = float(n2)
+
 		if op == "+":
 			return n1+n2
 		elif op == "-":
@@ -23,7 +26,11 @@ if __name__ == '__main__':
 
 	c = Calculadora()
 
-	r = 0
-	while r!=-1:
-		r = str(input('Insira a operação desejada, seguindo o modelo (<número> <operador> <numero>): '))
-		print(c.exec(r))
+	while True:
+		r = str(input('Insira a operação desejada, seguindo o modelo (<número> <operador> <numero>) (-1 para sair): '))
+		if r == -1: 
+			print('Encerrando Calculadora!')
+			break
+		else: 
+			print(c.exec(r))
+		print('-='*30)
