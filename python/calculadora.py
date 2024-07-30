@@ -1,36 +1,63 @@
 class Calculadora():
 	def __init__(self):
+		pass
+
+	def exec(self, v1, op, v2):
+		if op == '*':
+			return v1 * v2
+		elif op == '/':
+			return v1 / v2
+		elif op == '+':
+			return v1 + v2
+		elif op == '-':
+			return v1 - v2
+		else:
+			return 'Erro: Operador Inválido!'
+		
+
+
+class iCalculadora():
+	def __init__(self):
 		print('-='*30)
 		print('Inicializando a calculadora...')
 		print('-='*30)
-		pass
-	def exec(self, calculo:str):
-		# Este código deve apenas receber os números e operadores e executar as funćoes atribuidas a cada conta
-		n1, op, n2 = calculo.strip().split(' ')
-		n1 = float(n1)
-		n2 = float(n2)
+		self.calc = Calculadora()
+		self.interface()
 
-		if op == "+":
-			return n1+n2
-		elif op == "-":
-			return n1-n2
-		elif op == "*":
-			return n1*n2
-		elif op == "/":
-			return n1/n2
-		else:
-			print('Operador ou formato da conta incoerente.')
-		return 0
+	def quit(self):
+		print('-='*30)
+		print('Finalizando a calculadora...')
+		print('-='*30)
+		return -1
+		
+
+	def interface(self):
+		values = []
+		while True:
+			# Implementar as funções 's' para sair
+			quests = [
+				"Inisra o primeiro número ('s' para sair): ",
+				"Inisra o operador ('s' para sair): ",
+				"Inisra o último número ('s' para sair): "
+			]
+			for i, v in enumerate(quests):
+				while True:
+					inp = input(str(v))
+					if inp == 's': return self.quit()
+					elif inp in '/*-+':
+						break
+					else:
+						try:
+							inp = float(inp)
+							break
+						except:
+							print('Insira um valor condizente com o que pede!')
+				values.append(inp)
+			print(self.calc.exec(*values))
+			print('-='*30)
+
+			
 	
 if __name__ == '__main__':
 
-	c = Calculadora()
-
-	while True:
-		r = str(input('Insira a operação desejada, seguindo o modelo (<número> <operador> <numero>) (-1 para sair): '))
-		if r == '-1': 
-			print('Encerrando Calculadora!')
-			break
-		else: 
-			print(c.exec(r))
-		print('-='*30)
+	iCalculadora()
