@@ -1,4 +1,4 @@
-from calculadora import Calculadora
+from python.models.calculadora import Calculadora
 
 class iCalculadora():
 	def __init__(self):

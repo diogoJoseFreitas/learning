@@ -1,3 +1,3 @@
-from icalculadora import iCalculadora
+from interfaces.icalculadora import iCalculadora
 
 iCalculadora()
